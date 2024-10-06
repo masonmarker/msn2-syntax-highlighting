@@ -6,9 +6,15 @@
   "engines": {
     "vscode": "^1.94.0"
   },
+  "publisher": "masonmarker",
   "categories": [
     "Programming Languages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masonmarker/msn2-syntax-highlighting.git"
+  },
+  "license": "MIT",
   "contributes": {
     "languages": [{
       "id": "msn2",
