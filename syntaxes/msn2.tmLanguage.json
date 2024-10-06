@@ -1,58 +1,81 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "msn2",
-		"patterns": [
-			{
-				"include": "#keywords"
-			},
-			{
-				"include": "#strings"
-			},
-			{
-				"include": "#comments"
-			},
-			{
-				"include": "#numbers"
-			},
-			{
-				"include": "#functions"
-			},
-			{
-				"include": "#variables"
-			},
-			{
-				"include": "#operators"
-			},
-			{
-				"include": "#python-scripts"
-			},
-			{
-				"include": "#msn2-fallback"
-			},
-			{
-				"include": "#html"
-			}
-		],
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#python-scripts"
+		},
+		{
+			"include": "#msn2-fallback"
+		},
+		{
+			"include": "#html"
+		}
+	],
 	"repository": {
 		"main": {
 			"patterns": [
-			  { "include": "#keywords" },
-			  { "include": "#strings" },
-			  { "include": "#comments" },
-			  { "include": "#numbers" },
-			  { "include": "#functions" },
-			  { "include": "#variables" },
-			  { "include": "#operators" },
-			  { "include": "#python-scripts" },
-			  { "include": "#msn2-fallback" },
-			  { "include": "#html" }
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#functions"
+				},
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#operators"
+				},
+				{
+					"include": "#python-scripts"
+				},
+				{
+					"include": "#msn2-fallback"
+				},
+				{
+					"include": "#html"
+				},
+				{
+					"include": "#other"
+				}
 			]
-		  },
+		},
 		"keywords": {
 			"patterns": [
 				{
 					"name": "keyword.control.msn2",
-					"match": "\\b(class|if|while|for|def|import|assert|not|and|or|in|const|let|var|with|wait|threadpool|thread|proc|join)\\b"
+					"match": "\\b(macro|postmacro|syntax|enclosedsyntax|class|if|while|for|def|function|import|assert|not|and|or|in|const|let|var|with|wait|threadpool|thread|proc|join|settings|locals|globals)\\b"
 				}
 			]
 		},
@@ -79,44 +102,60 @@
 			]
 		},
 		"functions": {
-"patterns": [
-    {
-      "name": "meta.function-call.longstring.msn2",
-      "begin": "\\blongstring\\s*\\(",
-      "beginCaptures": {
-        "0": {
-          "name": "entity.name.function.longstring.msn2"
-        }
-      },
-      "end": "\\)",
-      "patterns": [
-        {
-          "name": "support.type.property-name.css",
-          "begin": "\\{=",
-          "end": "=\\}",
-          "patterns": [
-            {
-              "include": "#main"
-            }
-          ]
-        },
-        {
-          "name": "string.quoted.double.longstring.msn2",
-          "match": "[^\\{\\)]+"
-        }
-      ]
-    },
-    {
-      "name": "entity.name.function.msn2",
-      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\("
-    }
-  ]
+			"patterns": [
+				{
+					"name": "meta.function-call.longstring.msn2",
+					"begin": "\\b(longstring|ls)\\s*\\(",
+					"beginCaptures": {
+						"0": {
+							"name": "entity.name.function.longstring.msn2"
+						}
+					},
+					"end": "\\)",
+					"patterns": [
+						{
+							"name": "entity.name.class",
+							"match": "< >|<nl>|<tag>|<rp>|<lp>|(,)|<or>"
+						},
+						{
+							"name": "string.quoted.double.longstring.msn2",
+							"match": "[<>]"
+						},
+						{
+							"name": "string.quoted.double.longstring.msn2",
+							"match": "[^\\{\\)<>]+"
+						},
+						{
+							"name": "support.type.property-name.css",
+							"begin": "\\{=",
+							"end": "=\\}",
+							"patterns": [
+								{
+									"include": "#main"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "entity.name.function.msn2",
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\("
+				}
+			]
 		},
 		"comments": {
 			"patterns": [
 				{
 					"name": "comment.line.msn2",
 					"match": "#.*$"
+				}
+			]
+		},
+		"other": {
+			"patterns": [
+				{
+					"name": "entity.name.class",
+					"match": "[^\\w\\s]+"
 				}
 			]
 		},

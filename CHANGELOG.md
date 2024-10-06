@@ -2,8 +2,10 @@
 
 All notable changes to the "msn2-syntax-highlighting" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [2.0.401] - 2024-10-06
 
-## [Unreleased]
+- Initial release for MSN2 ```>=2.0.401```
 
-- Initial release
+### Added
+
+- Base syntax highlighting for MSN2 ```>=2.0.401```
