@@ -1,0 +1,25 @@
+{
+  "name": "msn2-syntax-highlighting",
+  "displayName": "msn2-syntax-highlighting",
+  "description": "Offers syntax highlighting for .msn2 scripts",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "msn2",
+      "aliases": ["msn2", "msn2"],
+      "extensions": [".msn2"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "msn2",
+      "scopeName": "source.msn2",
+      "path": "./syntaxes/msn2.tmLanguage.json"
+    }]
+  }
+}
