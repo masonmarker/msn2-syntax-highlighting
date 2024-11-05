@@ -2,7 +2,7 @@
   "name": "msn2-syntax-highlighting",
   "displayName": "msn2-syntax-highlighting",
   "description": "Offers syntax highlighting for .msn2 scripts",
-  "version": "2.0.402",
+  "version": "2.0.404",
   "engines": {
     "vscode": "^1.94.0"
   },
